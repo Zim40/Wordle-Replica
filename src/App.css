@@ -1,13 +1,60 @@
+:root {
+    --coolGrey: #8E9AAF;
+    --thistle: #CBC0D3;
+    --mistyRose: #EFD3D7;
+    --palePurple: #FEEAFA;
+    --lavender: #DEE2FF;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+html {
+    display: flex;
+    background-color: var(--lavender);
+}
+
+
 
 /* Header + Navbar */
 .header {
     display: flex;
     justify-content: space-between;
     margin: 0;
+    background-color: var(--thistle);
+    color:black;
+    border-bottom: 2px dotted var(--coolGrey);
+  
+   
+}
+
+/* Wordle Title */
+.brandTitle {
+    color: var(--coolGrey);
+    border-right: 2px dotted;
+    margin: 2px;
     padding: 5px;
+    max-height: 53px;
 }
 
 /* Navbar Background */
 .nav-Container {
-    background: white;
+    border-radius: 10px;
+    color: antiquewhite;
+
 }
+
+/* Game Container */
+
+.game-Container {
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    width:75%;
+    background: var(--coolGrey);
+    /* justify-content: center;
+    align-items: center; */
+}
+
