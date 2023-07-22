@@ -1,1 +1,13 @@
 
+/* Header + Navbar */
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 5px;
+}
+
+/* Navbar Background */
+.nav-Container {
+    background: white;
+}

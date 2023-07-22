@@ -1,14 +1,13 @@
-import React from 'react'
-import Navbar from '../Navbar';
+import React from "react";
+import HeaderNavbar from "../Navbar";
 
-
-
-
-
-const Header = () => {
-   return(
-    <Navbar/>
-   )
-};
-
-export default Header
+export default function Header() {
+  return (
+    <div className="header">
+      <h1>Wordle Replica</h1>
+         <div className="Nav-bar">
+            <HeaderNavbar />
+         </div>
+    </div>
+  );
+}
