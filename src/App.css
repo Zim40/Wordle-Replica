@@ -5,15 +5,11 @@
     --palePurple: #FEEAFA;
     --lavender: #DEE2FF;
 }
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 html {
     display: flex;
-    background-color: var(--lavender);
+    /* background-color: var(--lavender); */
 }
 
 
@@ -23,20 +19,23 @@ html {
     display: flex;
     justify-content: space-between;
     margin: 0;
-    background-color: var(--thistle);
+    background-color:var(--lavender);
     color:black;
-    border-bottom: 2px dotted var(--coolGrey);
+    border-bottom: 1px solid var(--lavender) ;
+    box-shadow: 0 1px 30px var(--lavender);
   
    
 }
 
 /* Wordle Title */
 .brandTitle {
-    color: var(--coolGrey);
-    border-right: 2px dotted;
+    font-family: 'Fjalla One', sans-serif;
+    color: black;
     margin: 2px;
     padding: 5px;
     max-height: 53px;
+    font-size: 35px;
+  
 }
 
 /* Navbar Background */
@@ -46,15 +45,37 @@ html {
 
 }
 
+.nav--links {
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+    border-left: 1px solid black;
+   
+    
+
+    font-family: 'Fjalla One', sans-serif;
+
+
+}
+
 /* Game Container */
 
 .game-Container {
     display: flex;
+    flex-direction: column;
+   
+}
+
+.game-Container > p, .game-Container > h4 {
+    padding: 0px;
+    margin-left: 10px;
+    letter-spacing: -0.05em;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 300;
+}
+.game-Container > h4 {
+    text-align: start;
     margin: 10px;
-    padding: 10px;
-    width:75%;
-    background: var(--coolGrey);
-    /* justify-content: center;
-    align-items: center; */
+    font-family: 'Fjalla One', sans-serif;
 }
 

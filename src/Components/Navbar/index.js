@@ -3,10 +3,9 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-
 export default function HeaderNavbar() {
   return (
-    <Navbar expand="lg" className="body-tertiary">
+    <Navbar expand="lg" className="body-tertiary nav">
       <Container className="nav-Container" fluid>
         <Navbar.Brand href="#"></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -16,8 +15,10 @@ export default function HeaderNavbar() {
             style={{ maxWidth: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Statistics</Nav.Link>
+            <div className="nav--links">
+              <Nav.Link href="#action1">Home</Nav.Link>
+              <Nav.Link href="#action2">Statistics</Nav.Link>
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Container>
