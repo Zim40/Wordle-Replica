@@ -1,81 +1,85 @@
 :root {
-    --coolGrey: #8E9AAF;
-    --thistle: #CBC0D3;
-    --mistyRose: #EFD3D7;
-    --palePurple: #FEEAFA;
-    --lavender: #DEE2FF;
-}
-
-
-html {
-    display: flex;
-    /* background-color: var(--lavender); */
+  --coolGrey: #8e9aaf;
+  --thistle: #cbc0d3;
+  --mistyRose: #efd3d7;
+  --palePurple: #feeafa;
+  --lavender: #dee2ff;
 }
 
 
 
 /* Header + Navbar */
 .header {
-    display: flex;
-    justify-content: space-between;
-    margin: 0;
-    background-color:var(--lavender);
-    color:black;
-    border-bottom: 1px solid var(--lavender) ;
-    box-shadow: 0 1px 30px var(--lavender);
-  
-   
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  background-color: var(--lavender);
+  color: black;
+  border-bottom: 1px solid var(--lavender);
+  box-shadow: 0 1px 30px var(--lavender);
 }
 
 /* Wordle Title */
 .brandTitle {
-    font-family: 'Fjalla One', sans-serif;
-    color: black;
-    margin: 2px;
-    padding: 5px;
-    max-height: 53px;
-    font-size: 35px;
-  
+  font-family: "Fjalla One", sans-serif;
+  color: black;
+  margin: 2px;
+  padding: 5px;
+  max-height: 53px;
+  font-size: 35px;
 }
 
 /* Navbar Background */
 .nav-Container {
-    border-radius: 10px;
-    color: antiquewhite;
-
+  border-radius: 10px;
+  color: antiquewhite;
 }
 
 .nav--links {
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  border-left: 1px solid black;
+  font-family: "Fjalla One", sans-serif;
+}
+
+.aboutBtn, .rulesBtn {
     display: flex;
-    flex-direction: column;
-    text-align: end;
-    border-left: 1px solid black;
+    justify-content: space-around;
+    align-self: center;
+    margin: 20px;
+    font-family: "Fjalla One", sans-serif;
+    width: 50%;
+    border: 0 solid black;
+    box-shadow: 0 1px 5px var(--coolGrey);
+    border-radius: 20px;
+    background-color: var(--mistyRose);
    
-    
-
-    font-family: 'Fjalla One', sans-serif;
-
-
 }
 
 /* Game Container */
 
 .game-Container {
-    display: flex;
-    flex-direction: column;
-   
+  display: flex;
+  flex-direction: column;
 }
 
-.game-Container > p, .game-Container > h4 {
-    padding: 0px;
-    margin-left: 10px;
-    letter-spacing: -0.05em;
+.game-Container > p{
+  padding: 0px;
+  margin-left: 10px;
+  letter-spacing: -0.05em;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+}
+.game--abt-rules {
+    padding: 10px;
     font-family: 'IBM Plex Mono', monospace;
-    font-weight: 300;
 }
-.game-Container > h4 {
-    text-align: start;
-    margin: 10px;
-    font-family: 'Fjalla One', sans-serif;
+.game--abt-rules > ol, .game--abt-rules > p  {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
 }
+
+
 
