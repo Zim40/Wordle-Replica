@@ -1,17 +1,17 @@
 import Header from "../src/Components/Header";
 import Buttons from "./Components/Buttons";
+import Game from "./Components/Game";
 import "./App.css";
 // import HeaderNavbar from '../src/Components/Header';
 
 function App() {
   return (
     <div>
-      <div>
-        <Header />
-      </div>
-        <div>
-          <Buttons />
-        </div>
+      <Header />
+
+      <Buttons />
+
+      <Game />
     </div>
   );
 }

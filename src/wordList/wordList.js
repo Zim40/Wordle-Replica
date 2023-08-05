@@ -1,3 +1,2 @@
-const words = ["GOATS, GNOME, ATLAS, WORLD"];
+export const words = ['GOATS', 'GNOME', 'ATLAS', 'WORLD'];
 
-export {words};

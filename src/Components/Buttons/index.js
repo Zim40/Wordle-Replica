@@ -15,7 +15,7 @@ export default function Buttons() {
     setDescriptionVisible(!descriptionVisible);
     setRulesVisible(rulesVisible);
   };
-
+// Return JSX component
   return (
     <>
       <div className="btn-container">

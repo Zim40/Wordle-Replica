@@ -1,8 +1,16 @@
-import React from 'react';
+import React from "react";
+import { words } from "../../wordList/wordList";
 
-export default function Game () {
-    // Game code here
-    return (
-        console.log("here is the game container")
-    )
+// Test code for random word value.
+const randomIndex = Math.floor(Math.random() * words.length);
+const randomWord = words[randomIndex];
+console.log(randomWord);
+
+export default function Game() {
+  // Game code here
+  return (
+    <main>
+        <h4>{randomWord}</h4>
+    </main> 
+  )
 }
