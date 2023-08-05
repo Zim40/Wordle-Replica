@@ -1,5 +1,5 @@
 import Header from "../src/Components/Header";
-import Wordle from "./Components/Wordle";
+import Buttons from "./Components/Buttons";
 import "./App.css";
 // import HeaderNavbar from '../src/Components/Header';
 
@@ -10,7 +10,7 @@ function App() {
         <Header />
       </div>
         <div>
-          <Wordle />
+          <Buttons />
         </div>
     </div>
   );

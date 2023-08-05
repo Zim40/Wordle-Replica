@@ -19,6 +19,11 @@
   box-shadow: 0 1px 30px var(--lavender);
 }
 
+.btn-container {
+  display: flex;
+
+}
+
 /* Wordle Title */
 .brandTitle {
   font-family: "Fjalla One", sans-serif;
@@ -57,14 +62,14 @@
    
 }
 
-/* Game Container */
+/* info Container */
 
-.game-Container {
+.info-Container {
   display: flex;
   flex-direction: column;
 }
 
-.game-Container > p{
+.info-Container > p{
   padding: 0px;
   margin-left: 10px;
   letter-spacing: -0.05em;
