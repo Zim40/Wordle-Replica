@@ -9,7 +9,7 @@ app.use(express.static("/public"));
 app.get("/fetch-word", async (req, res) => {
   try {
     const response = await fetch(
-      "https://api.datamuse.com/words?sp=?????&max=2"
+      "https://api.datamuse.com/words?sp=?????&max=50"
     );
     const data = await response.json();
     res.json(data);
