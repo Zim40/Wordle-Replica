@@ -1,18 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { words } from "../../wordList/wordList";
 
 export default function Game() {
   // Test code for random word value.
-  const randomIndex = Math.floor(Math.random() * words.length);
-  const randomWord = words[randomIndex];
+  // const randomIndex = Math.floor(Math.random() * words.length);
+  // const randomWord = words[randomIndex];
   
 // Set Target Word before game starts
-  const correctAnswer = randomWord;
+  // const correctAnswer = randomWord;
   
 // Assign states for Target Word, Restart Button and Guessed Words.
-  const [correctWord, setCorrectWord] = useState(correctAnswer);
+  const [correctWord, setCorrectWord] = useState("");
   const [showRestartBtn, setShowRestartBtn] = useState(false);
   const [guessedWord, setGuessedWord] = useState("");
+
+  useEffect( () => {
+    const fetchData = async () => {
+      try {
+    const response = await fetch('/fetch-word')
+   
+      if(!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const word = await response.json();
+   
+    
+      const randomIndex =  Math.floor(Math.random() * word.length);
+      const randomWord = word[randomIndex];
+      
+    // Set Target Word before game starts
+      setCorrectWord(randomWord);
+      console.log(randomWord);
+    } catch (error) {
+      console.log("There was a problem with the fetch operation:", error);
+    }
+  };
+  fetchData();
+  }, []);
+  
 
 // submit guess function.
   const guessSubmit = (event) => {
@@ -24,7 +49,7 @@ export default function Game() {
     
 // Check if word matches Target Word.
     if (guessedWord === correctWord) {
-      console.log(correctWord);
+      
       const success = document.getElementById("correctWord");
       success.textContent = correctWord;
 // Flips restart button Boolean to reveal button if guess correct.
@@ -56,6 +81,8 @@ export default function Game() {
     const success = document.getElementById("correctWord");
     success.textContent = "";
   };
+
+
 
   return (
     <main className="main--game">
