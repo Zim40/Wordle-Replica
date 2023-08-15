@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { words } from "../../wordList/wordList";
+// import { words } from "../../wordList/wordList";
 
 export default function Game() {
   
@@ -63,14 +63,14 @@ export default function Game() {
   // Restart Game function
   const restartGame = () => {
     // Test code for random word value.
-    const randomIndex = Math.floor(Math.random() * words.length);
-    const randomWord = words[randomIndex];
+    // const randomIndex = Math.floor(Math.random() * word.length);
+    // const randomWord = word[randomIndex];
 
     console.log("restart initiated");
 
     setShowRestartBtn(false);
     setGuessedWord("");
-    setCorrectWord(randomWord);
+    setCorrectWord("");
     setDisplayWord("");
     setRestartCount(prevCount => prevCount + 1);
 
