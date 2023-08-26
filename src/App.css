@@ -87,4 +87,47 @@
 }
 
 
+/* WORDLE GUESSES! */
+.game-board {
+  text-align: center;
+}
+
+.input-box {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.guess-button {
+  font-size: 1.2em;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  margin: 0 2px;
+}
+
+.gray {
+  background-color: gray;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+
 

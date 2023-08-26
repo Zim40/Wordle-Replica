@@ -7,10 +7,12 @@ export default function Game() {
   const [correctWord, setCorrectWord] = useState(""); // Correct Word
   const [showRestartBtn, setShowRestartBtn] = useState(false); // Restart Button
   const [guessedWord, setGuessedWord] = useState([]); // Guessed word
+  const [invalidGuess, setInvalidGuess] = useState("Enter Your Guess"); // Invalid guess
   const [displayWord, setDisplayWord] = useState(""); // Display word after correct guess
   const [restartCount, setRestartCount] = useState(0); // Restart State Counter
-  const [invalidGuess, setInvalidGuess] = useState("Enter Your Guess");
-  console.log(invalidGuess);
+  const [guesses, setGuesses] = useState([]); //Guess State Counter
+  
+  
   
 
   useEffect(() => {
@@ -64,9 +66,20 @@ export default function Game() {
     } else if (guessedWord !== correctWord) {
       console.log("try again");
       setShowRestartBtn(false);
-      setGuessedWord("");
+      // setGuessedWord("");
       setDisplayWord("");
     }
+    const feedback = Array(5).fill("gray");
+    for(let i = 0; i < correctWord.length; i++) {
+      if(guessedWord[i] === correctWord[i]) {
+        feedback[i] = "green"
+      } else if (correctWord.includes(guessedWord[i])) {
+        feedback[i] = "yellow";
+      }
+    }
+    setGuesses([...guesses, { guess: guessedWord, feedback }]);
+    setGuessedWord("")
+ 
   };
 
   // Restart Game function
@@ -76,6 +89,9 @@ export default function Game() {
     // const randomWord = word[randomIndex];
 
     console.log("restart initiated");
+    setTimeout(() => {
+      setGuesses([])
+    }, 1000);
 
     setShowRestartBtn(false);
     setGuessedWord("");
@@ -85,6 +101,8 @@ export default function Game() {
 
    
   };
+
+ 
 
   return (
     <main className="main--game">
@@ -123,6 +141,20 @@ export default function Game() {
           </button>
         )}
       </form>
+      <div>
+        {guesses.map((guessObj, index) => (
+          <div key={index} className="row">
+            {guessObj.feedback.map((color, i) => (
+              <div
+                key={i}
+                className={`cell ${color}`}
+              >
+                {guessObj.guess[i]}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </main>
   );
 }
