@@ -4,11 +4,13 @@ import React, { useState, useEffect } from "react";
 export default function Game() {
   
   // Assign states 
-  const [correctWord, setCorrectWord] = useState("");
-  const [showRestartBtn, setShowRestartBtn] = useState(false);
-  const [guessedWord, setGuessedWord] = useState("");
-  const [displayWord, setDisplayWord] = useState("");
-  const [restartCount, setRestartCount] = useState(0);
+  const [correctWord, setCorrectWord] = useState(""); // Correct Word
+  const [showRestartBtn, setShowRestartBtn] = useState(false); // Restart Button
+  const [guessedWord, setGuessedWord] = useState([]); // Guessed word
+  const [displayWord, setDisplayWord] = useState(""); // Display word after correct guess
+  const [restartCount, setRestartCount] = useState(0); // Restart State Counter
+  const [invalidGuess, setInvalidGuess] = useState("Enter Your Guess");
+  console.log(invalidGuess);
   
 
   useEffect(() => {
@@ -39,6 +41,13 @@ export default function Game() {
     event.preventDefault();
 
     const currentGuessedWord = guessedWord.trim().toLowerCase();
+    if(currentGuessedWord.length > 5 || currentGuessedWord.length < 5) {
+      setInvalidGuess("Guess must be 5 characters");
+      setTimeout(() => {
+        setInvalidGuess("");
+      },1000)
+      
+    };
     console.log(guessedWord);
     setGuessedWord(guessedWord);
     
@@ -83,13 +92,14 @@ export default function Game() {
       <p className="correctWord" id="correctWord">
         {displayWord}
       </p>
-      <h5>Make your guess here!</h5>
+      
       <form id="form" onSubmit={guessSubmit}>
         {/* user input */}
         <input
           autoComplete="off"
           className="textArea"
           id="textArea"
+          placeholder={invalidGuess}
           value={guessedWord}
           onChange={(event) => setGuessedWord(event.target.value)}
           disabled={showRestartBtn}
