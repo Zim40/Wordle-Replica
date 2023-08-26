@@ -8,6 +8,7 @@
 
 
 
+
 /* Header + Navbar */
 .header {
   display: flex;
@@ -21,6 +22,7 @@
 
 .btn-container {
   display: flex;
+  
 
 }
 
@@ -67,6 +69,7 @@
 .info-Container {
   display: flex;
   flex-direction: column;
+ 
 }
 
 .info-Container > p{
@@ -85,6 +88,8 @@
     padding: 0;
     font-weight: 600;
 }
+
+
 
 
 /* WORDLE GUESSES! */
@@ -108,13 +113,16 @@
 }
 
 .cell {
-  width: 50px;
+  width: 50px !important;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.5em;
-  margin: 0 2px;
+  margin: 5px 8px;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px black;
 }
 
 .gray {
@@ -125,8 +133,8 @@
   background-color: green;
 }
 
-.yellow {
-  background-color: yellow;
+.amber {
+  background-color: #FFBF00;
 }
 
 

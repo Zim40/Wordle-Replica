@@ -74,7 +74,7 @@ export default function Game() {
       if(guessedWord[i] === correctWord[i]) {
         feedback[i] = "green"
       } else if (correctWord.includes(guessedWord[i])) {
-        feedback[i] = "yellow";
+        feedback[i] = "amber";
       }
     }
     setGuesses([...guesses, { guess: guessedWord, feedback }]);
@@ -106,8 +106,24 @@ export default function Game() {
 
   return (
     <main className="main--game">
-      {/* guessed correct word */}
-      <p className="correctWord" id="correctWord">
+     
+      <div>
+        {guesses.map((guessObj, index) => (
+          <div key={index} className="row">
+            {guessObj.feedback.map((color, i) => (
+              <div
+                key={i}
+                className={`cell ${color}`}
+                style={{ fontWeight: 'bold', color: "white"}}
+              >
+                {guessObj.guess[i]}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+       {/* guessed correct word */}
+       <p className="correctWord" id="correctWord">
         {displayWord}
       </p>
       
@@ -141,20 +157,6 @@ export default function Game() {
           </button>
         )}
       </form>
-      <div>
-        {guesses.map((guessObj, index) => (
-          <div key={index} className="row">
-            {guessObj.feedback.map((color, i) => (
-              <div
-                key={i}
-                className={`cell ${color}`}
-              >
-                {guessObj.guess[i]}
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
     </main>
   );
 }
