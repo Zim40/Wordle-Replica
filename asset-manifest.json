@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/wordle-app/static/css/main.1b1d52ba.css",
-    "main.js": "/wordle-app/static/js/main.37ae3008.js",
-    "static/js/787.76663682.chunk.js": "/wordle-app/static/js/787.76663682.chunk.js",
-    "index.html": "/wordle-app/index.html",
-    "main.1b1d52ba.css.map": "/wordle-app/static/css/main.1b1d52ba.css.map",
-    "main.37ae3008.js.map": "/wordle-app/static/js/main.37ae3008.js.map",
-    "787.76663682.chunk.js.map": "/wordle-app/static/js/787.76663682.chunk.js.map"
+    "main.css": "/Wordle-Replica/static/css/main.1b1d52ba.css",
+    "main.js": "/Wordle-Replica/static/js/main.63065c94.js",
+    "static/js/787.76663682.chunk.js": "/Wordle-Replica/static/js/787.76663682.chunk.js",
+    "index.html": "/Wordle-Replica/index.html",
+    "main.1b1d52ba.css.map": "/Wordle-Replica/static/css/main.1b1d52ba.css.map",
+    "main.63065c94.js.map": "/Wordle-Replica/static/js/main.63065c94.js.map",
+    "787.76663682.chunk.js.map": "/Wordle-Replica/static/js/787.76663682.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1b1d52ba.css",
-    "static/js/main.37ae3008.js"
+    "static/js/main.63065c94.js"
   ]
 }
