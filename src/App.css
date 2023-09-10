@@ -137,5 +137,38 @@
   background-color: #FFBF00;
 }
 
+#form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+#form > button {
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px grey;
+    background-color: rgb(39, 173, 39);
+    width: 200px;
+    font-size:20px;
+    margin: 5px;
+    font-family:  "Fjalla One", sans-serif ;
+}
+
+#form > input {
+  width: 250px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  text-align: center;
+}
+ .correctWord {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  font-family:  "Fjalla One", sans-serif ;
+  
+ }
 
 

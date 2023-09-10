@@ -2,18 +2,15 @@ import React, { useState, useEffect } from "react";
 // import { words } from "../../wordList/wordList";
 
 export default function Game() {
-  
-  // Assign states 
+  // Assign states
   const [correctWord, setCorrectWord] = useState(""); // Correct Word
   const [showRestartBtn, setShowRestartBtn] = useState(false); // Restart Button
   const [guessedWord, setGuessedWord] = useState([]); // Guessed word
-  const [invalidGuess, setInvalidGuess] = useState("Enter Your Guess"); // Invalid guess
+  const [invalidGuess, setInvalidGuess] = useState(""); // Invalid guess
   const [displayWord, setDisplayWord] = useState(""); // Display word after correct guess
   const [restartCount, setRestartCount] = useState(0); // Restart State Counter
   const [guesses, setGuesses] = useState([]); //Guess State Counter
-  
-  
-  
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,16 +40,17 @@ export default function Game() {
     event.preventDefault();
 
     const currentGuessedWord = guessedWord.trim().toLowerCase();
-    if(currentGuessedWord.length > 5 || currentGuessedWord.length < 5) {
-      setInvalidGuess("Guess must be 5 characters");
+    if (currentGuessedWord.length !== 5) {
+      setInvalidGuess("Guess must be 5 characters")
       setTimeout(() => {
-        setInvalidGuess("");
-      },1000)
+         setInvalidGuess("");
+         
+      }, 3000);
+      return;
       
-    };
+    }
     console.log(guessedWord);
     setGuessedWord(guessedWord);
-    
 
     // Check if word matches Target Word.
     if (currentGuessedWord === correctWord.toLowerCase()) {
@@ -70,16 +68,21 @@ export default function Game() {
       setDisplayWord("");
     }
     const feedback = Array(5).fill("gray");
-    for(let i = 0; i < correctWord.length; i++) {
-      if(guessedWord[i] === correctWord[i]) {
-        feedback[i] = "green"
+    for (let i = 0; i < correctWord.length; i++) {
+      if (guessedWord[i] === correctWord[i]) {
+        feedback[i] = "green";
       } else if (correctWord.includes(guessedWord[i])) {
         feedback[i] = "amber";
       }
     }
+    if (guesses.length === 5) {
+      
+      setGameOver(true);
+      setShowRestartBtn(true);
+    
+    }
     setGuesses([...guesses, { guess: guessedWord, feedback }]);
-    setGuessedWord("")
- 
+    setGuessedWord("");
   };
 
   // Restart Game function
@@ -90,43 +93,52 @@ export default function Game() {
 
     console.log("restart initiated");
     setTimeout(() => {
-      setGuesses([])
+      setGuesses([]);
     }, 1000);
 
     setShowRestartBtn(false);
     setGuessedWord("");
     setCorrectWord("");
     setDisplayWord("");
-    setRestartCount(prevCount => prevCount + 1);
-
-   
+    setGameOver(false);
+    setRestartCount((prevCount) => prevCount + 1);
   };
-
- 
 
   return (
     <main className="main--game">
-     
       <div>
-        {guesses.map((guessObj, index) => (
-          <div key={index} className="row">
-            {guessObj.feedback.map((color, i) => (
-              <div
-                key={i}
-                className={`cell ${color}`}
-                style={{ fontWeight: 'bold', color: "white"}}
-              >
-                {guessObj.guess[i]}
+        {gameOver  ?  (
+          <div>Game Over! You've reached the maximum number of guesses.
+            <p>{displayWord}</p>
+          </div>
+          
+          
+          
+        ) : (
+          <div>
+            {guesses.map((guessObj, index) => (
+              <div key={index} className="row">
+                {guessObj.feedback.map((color, i) => (
+                  <div
+                    key={i}
+                    className={`cell ${color}`}
+                    style={{ fontWeight: "bold", color: "white" }}
+                  >
+                    {guessObj.guess[i].toUpperCase()}
+                  </div>
+                ))}
               </div>
             ))}
           </div>
-        ))}
+        )}
       </div>
-       {/* guessed correct word */}
-       <p className="correctWord" id="correctWord">
-        {displayWord}
+      <hr></hr>
+      {/* guessed correct word */}
+      <p className="correctWord" id="correctWord">
+        {displayWord.toUpperCase()}
+        {invalidGuess.toUpperCase()}
       </p>
-      
+
       <form id="form" onSubmit={guessSubmit}>
         {/* user input */}
         <input
@@ -144,7 +156,7 @@ export default function Game() {
           onClick={guessSubmit}
           disabled={showRestartBtn}
         >
-          SUMBIT GUESS
+          Guess
         </button>
         {showRestartBtn && (
           <button
