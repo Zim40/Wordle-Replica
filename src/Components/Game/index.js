@@ -15,7 +15,7 @@ export default function Game() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/fetch-word");
+        const response = await fetch("https://api.datamuse.com/words?sp=?????&max=50");
 
         if (!response.ok) {
           throw new Error("Network response was not ok");
